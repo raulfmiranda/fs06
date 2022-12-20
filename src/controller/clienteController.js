@@ -4,6 +4,10 @@ async function listar() {
     return await database.executar('SELECT * FROM tb_cliente');
 }
 
+async function buscarUm(id) {
+    return await database.executar('SELECT * FROM tb_cliente WHERE id=' + id);    
+}
+
 function cadastrar() {
     return "Cadastrando cliente...";
 }
@@ -11,4 +15,5 @@ function cadastrar() {
 module.exports = {
     listar, 
     cadastrar,
+    buscarUm
 };

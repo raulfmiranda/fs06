@@ -5,7 +5,7 @@ async function executar(sql) {
         host: 'localhost',
         user: 'root',
         password: '1234',
-        database: 'fs06_teste'
+        database: 'fs06_api'
     });
 
     const [results] = await conexao.execute(sql);

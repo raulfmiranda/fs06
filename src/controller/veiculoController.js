@@ -1,7 +1,12 @@
 const database = require('../connection/databaseConnection');
 
 async function listar() {
-    let sql = 'SELECT * FROM tb_veiculo'; 
+    let sql = `
+        SELECT 
+            vec.*, cli.nome AS cliente
+        FROM tb_veiculo vec INNER JOIN tb_cliente cli
+            ON vec.cliente_id = cli.id
+    `; 
 
     return await database.executar(sql);
 }
