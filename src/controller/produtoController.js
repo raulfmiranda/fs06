@@ -1,17 +1,11 @@
-function listar() {
-    let dados = []; // SELECT * FROM tb_veiculos;
+const database = require('../connection/databaseConnection');
 
-    //simulando que estamos buscando dados em um banco de dados
-    for (let i = 1; i <= 10; i++) {
-        dados.push({
-            id: i,
-            nome: 'Produto '+i,
-            valor: 100.01*3,
-            categoria: 'Informática',
-        });
-    }
+async function listar() {
+    return await database.executar('SELECT * FROM tb_produto');
+}
 
-    return dados;
+async function buscarUm(id) {
+    return await database.executar('SELECT * FROM tb_produto WHERE id=' + id);    
 }
 
 function cadastrar() {
@@ -21,4 +15,5 @@ function cadastrar() {
 module.exports = {
     listar, 
     cadastrar,
+    buscarUm
 };

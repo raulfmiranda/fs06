@@ -60,3 +60,22 @@ ALTER TABLE tb_veiculo ADD COLUMN cliente_id INT (11) NOT NULL DEFAULT 6;
 
 -- Criando a relação entre as duas tabelas --
 ALTER TABLE tb_veiculo ADD FOREIGN KEY (cliente_id) REFERENCES tb_cliente(id);
+
+-- Criando tabela de produtos --
+CREATE TABLE tb_produto (
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    preco FLOAT(7) NOT NULL,
+    quantidade INT(7) NOT NULL,
+    descricao VARCHAR(100) NOT NULL,
+    categoria CHAR(11) NOT NULL
+);
+
+-- Inserindo dados na tabela de produtos --
+INSERT INTO tb_produto (nome, preco, quantidade, descricao, categoria)
+VALUES 
+('Teclado Basic', '35.40', '3', 'Teclado básico da cor preta.', 'Informática'),
+('Teclado Gamer', '50.00', '2', 'Teclado Gamer básico da cor preta.', 'Informática'),
+('Mouse Basic', '20.00', '5', 'Mouse básico da cor preta.', 'Informática'),
+('Mouse Gamer', '40.00', '4', 'Mouse gamer da cor vermelha.', 'Informática'),
+('Blusa', '40.00', '10', 'Blusa básica branca.', 'Moda');
