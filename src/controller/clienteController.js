@@ -12,8 +12,13 @@ function cadastrar() {
     return "Cadastrando cliente...";
 }
 
+async function buscarProdutos(id) {
+    return await database.executar('SELECT * FROM tb_produto WHERE cliente_id=' + id);
+}
+
 module.exports = {
     listar, 
     cadastrar,
-    buscarUm
+    buscarUm,
+    buscarProdutos
 };
